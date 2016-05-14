@@ -1,4 +1,5 @@
 # coding=utf-8
+import Queue
 import os
 import shutil
 import sys
@@ -7,7 +8,7 @@ import cv2
 from PyQt4 import QtCore
 from PyQt4 import QtGui, uic
 from PyQt4 import QtWebKit
-from PyQt4.Qt import QUrl, QString, QSize, QObject
+from PyQt4.Qt import QUrl, QString, QSize
 
 import helper as hp
 from service_capturing import Capture
@@ -25,8 +26,8 @@ class MyWindow(QtGui.QMainWindow):
         uic.loadUi('mybrow.ui', self)
         self.vieww = QtWebKit.QWebView(self)
         self.vieww.load(QUrl("http://google.com"))
-        #self.__fill_page('start.html')
-        #self.vieww.load(self.__get_uri('start.html'))
+        # self.__fill_page('start.html')
+        # self.vieww.load(self.__get_uri('start.html'))
         self.setCentralWidget(self.vieww)
         self.connect(self.my_run, QtCore.SIGNAL('triggered()'), QtCore.SLOT('run_capturing_service()'))
         self.connect(self.my_close, QtCore.SIGNAL('triggered()'), QtCore.SLOT('close()'))
@@ -48,7 +49,6 @@ class MyWindow(QtGui.QMainWindow):
         if not os.path.exists(u"view/img"):
             os.mkdir(u"view/img")
         QtGui.QMainWindow.closeEvent(self, event)
-
 
     @QtCore.pyqtSlot(str)
     def redraw(self, text):
@@ -72,7 +72,7 @@ class MyWindow(QtGui.QMainWindow):
         self.my_open.setEnabled(True)
 
 
-class Presentation(QObject):
+class Presentation(QtCore.QThread):
     __dir = "plates/present"  # "plates/present"
     __counter = 0
     __zam0 = "{0}"
@@ -80,9 +80,10 @@ class Presentation(QObject):
 
     redraw = QtCore.pyqtSignal(str)
 
-    def __init__(self, parent=None):
-        QObject.__init__(self, parent)
+    __queue = Queue.Queue(-1)
 
+    def __init__(self, parent=None):
+        super(Presentation, self).__init__(parent)
         while os.path.exists(u'view/img'):
             shutil.rmtree(u'view/img')
         if not os.path.exists(u"view/img"):
@@ -126,16 +127,24 @@ class Presentation(QObject):
 
         return item
 
+    def run(self):
+        while True:
+            if not self.__queue.empty():
+                item = self.__make_template(self.__queue.get())
+                self.__main_tmp = self.__main_tmp.format(item)
+
+                with open("view/main-work.html", 'wb') as temp_file:
+                    temp_file.write(self.__main_tmp)
+
+                if self.__counter % 3 == 0:
+                    self.redraw.emit(self.__main_tmp.decode('utf-8'))
+                    #time.sleep(0.5)
+                self.__queue.task_done()
+
+
     @QtCore.pyqtSlot(dict)
     def presentation(self, meta):
-        # print meta['result']
-        item = self.__make_template(meta)
-        self.__main_tmp = self.__main_tmp.format(item)
-
-        with open("view/main-work.html", 'wb') as temp_file:
-            temp_file.write(self.__main_tmp)
-
-        self.redraw.emit(self.__main_tmp.decode('utf-8'))
+        self.__queue.put(meta)
 
 
 if __name__ == "__main__":
@@ -146,13 +155,16 @@ if __name__ == "__main__":
     capture = Capture()
     window = MyWindow()
 
-    window.start_capturing.connect(capture.start_capturing)
     window.show()
 
-    capture.plate_captured.connect(recognition.process)
+    window.start_capturing.connect(capture.start_capturing)
     recognition.plate_recognized.connect(present.presentation)
     recognition.unlock_interface.connect(window.unblock_window)
+    capture.plate_captured.connect(recognition.process)
     present.redraw.connect(window.redraw)
 
+    capture.start()
+    recognition.start()
+    present.start()
 
     sys.exit(app.exec_())

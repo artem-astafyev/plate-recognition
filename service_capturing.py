@@ -1,22 +1,35 @@
+import Queue
+import time
+
 from PyQt4 import QtCore
 from PyQt4.QtCore import QObject
 
 import helper as hp
 
 
-class Capture(QObject):
+class Capture(QtCore.QThread):
     plate_captured = QtCore.pyqtSignal(dict)
 
+    __queue = Queue.Queue(-1)
+
     def __init__(self, parent=None):
-        QObject.__init__(self, parent)
+        super(Capture, self).__init__(parent)
 
     @QtCore.pyqtSlot(str)
     def start_capturing(self, dir_in):
-        paths = hp.get_paths(dir_in)
-        for num, path in enumerate(paths, start=1):
-            meta = {'id': num, 'plate': hp.get_image(dir_in, path)}
-            self.plate_captured.emit(meta)
-            print path
+       self.__queue.put(dir_in)
+
+    def run(self):
+        while True:
+            if not self.__queue.empty():
+                dir_in = self.__queue.get()
+                paths = hp.get_paths(dir_in)
+                for num, path in enumerate(paths, start=1):
+                    meta = {'id': num, 'plate': hp.get_image(dir_in, path)}
+                    time.sleep(0.25)
+                    self.plate_captured.emit(meta)
+                    print path
+                self.__queue.task_done()
 
 
 class Show(QObject):
