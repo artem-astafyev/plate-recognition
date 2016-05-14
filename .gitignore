@@ -1,0 +1,4 @@
+*.pyc
+/plates
+.idea
+/images
