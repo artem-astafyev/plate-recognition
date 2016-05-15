@@ -16,7 +16,7 @@ from service_recognition import Recognition
 
 
 class MyWindow(QtGui.QMainWindow):
-    __dir = '../sym-base/plates/present'
+    __dir = 'plates/present'
     __zam1 = "file:///{0}/view/".format(os.getcwd().replace("\\", "/"))
 
     start_capturing = QtCore.pyqtSignal(str)
@@ -152,12 +152,13 @@ class Presentation(QtCore.QThread):
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
 
+    window = MyWindow()
+    window.show()
+
     recognition = Recognition()
     present = Presentation()
     capture = Capture()
-    window = MyWindow()
 
-    window.show()
 
     window.start_capturing.connect(capture.start_capturing)
     recognition.plate_recognized.connect(present.presentation)

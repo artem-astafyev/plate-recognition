@@ -25,6 +25,7 @@ class RecognitionLoader(QtCore.QThread):
 
     def run(self):
         ann, knn, msp, svm = ANN(), KNN(), MSP(), MYSVM()
+
         print 'run'
 
         self.on_loaded.emit({'ann':ann, 'knn':knn, 'msp' : msp, 'svm':svm})
@@ -210,8 +211,3 @@ class Recognition(QtCore.QThread):
     QtCore.pyqtSlot()
     def end(self):
         self.unlock_interface.emit()
-
-
-
-
-

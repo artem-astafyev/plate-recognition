@@ -46,6 +46,7 @@ img.plate{
     margin-top: 10px;
     opacity: 0.95;
 	border: 14px solid #94B12E;
+	border-radius: 10px;
 	padding-bottom: 0px;
 }
 

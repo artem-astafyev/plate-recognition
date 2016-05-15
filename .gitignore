@@ -1,5 +1,4 @@
 *.pyc
-/plates
 .idea
 /images
 /view/img
