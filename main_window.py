@@ -16,8 +16,8 @@ from service_recognition import Recognition
 
 
 class MyWindow(QtGui.QMainWindow):
-    __dir = "plates/present"
-    __zam1 = "File:///{0}//view//".format(os.getcwd())
+    __dir = '../sym-base/plates/present'
+    __zam1 = "file:///{0}/view/".format(os.getcwd().replace("\\", "/"))
 
     start_capturing = QtCore.pyqtSignal(str)
 
@@ -25,22 +25,23 @@ class MyWindow(QtGui.QMainWindow):
         super(MyWindow, self).__init__()
         uic.loadUi('mybrow.ui', self)
         self.vieww = QtWebKit.QWebView(self)
-        self.vieww.load(QUrl("http://google.com"))
-        # self.__fill_page('start.html')
-        # self.vieww.load(self.__get_uri('start.html'))
+        #self.vieww.load(QUrl("http://google.com"))
+        self.__fill_page('loader.html')
+        self.vieww.load(self.__get_uri('loader.html'))
+
         self.setCentralWidget(self.vieww)
         self.connect(self.my_run, QtCore.SIGNAL('triggered()'), QtCore.SLOT('run_capturing_service()'))
         self.connect(self.my_close, QtCore.SIGNAL('triggered()'), QtCore.SLOT('close()'))
         self.connect(self.my_open, QtCore.SIGNAL('triggered()'), QtCore.SLOT('show_dialog()'))
 
     def __get_uri(self, path):
-        return QUrl("File:///{0}\\view\\{1}".format(os.getcwd(), path))
+        return QUrl("file:///{0}/view/{1}".format(os.getcwd().replace("\\", "/").replace("\\", "/"), path))
 
     def __fill_page(self, path):
-        with open('view/tmp/start.html', 'r') as myfile:
+        with open('view/tmp/'+path, 'r') as myfile:
             self.__main_tmp = myfile.read().replace('\n', '')
         self.__main_tmp = self.__main_tmp.format("", self.__zam1)
-        with open("view/start.html", 'wb') as temp_file:
+        with open("view/"+path, 'wb') as temp_file:
             temp_file.write(self.__main_tmp)
 
     def closeEvent(self, event):
@@ -62,7 +63,7 @@ class MyWindow(QtGui.QMainWindow):
     def show_dialog(self):
         fd = QtGui.QFileDialog(self)
         fd.resize(QSize(640, 480))
-        self.__dir = fd.getExistingDirectory(fd, QString(u"Открыть папку с изображениями:"), os.getcwd(),
+        self.__dir = fd.getExistingDirectory(fd, QString(u"Открыть папку с изображениями:"), os.getcwd().replace("\\", "/"),
                                              QtGui.QFileDialog.DontResolveSymlinks)
 
     @QtCore.pyqtSlot()
@@ -70,13 +71,14 @@ class MyWindow(QtGui.QMainWindow):
         self.my_run.setEnabled(True)
         self.my_close.setEnabled(True)
         self.my_open.setEnabled(True)
+        self.__fill_page('start.html')
+        self.vieww.load(self.__get_uri('start.html'))
 
 
 class Presentation(QtCore.QThread):
-    __dir = "plates/present"  # "plates/present"
     __counter = 0
     __zam0 = "{0}"
-    __zam1 = "File:///{0}//view//".format(os.getcwd())
+    __zam1 = "file:///{0}/view/".format(os.getcwd().replace("\\", "/"))
 
     redraw = QtCore.pyqtSignal(str)
 
