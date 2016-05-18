@@ -1,5 +1,5 @@
 import Queue
-import time
+import random
 
 from PyQt4 import QtCore
 from PyQt4.QtCore import QObject
@@ -17,7 +17,7 @@ class Capture(QtCore.QThread):
 
     @QtCore.pyqtSlot(str)
     def start_capturing(self, dir_in):
-       self.__queue.put(dir_in)
+        self.__queue.put(dir_in)
 
     def run(self):
         while True:
@@ -25,8 +25,7 @@ class Capture(QtCore.QThread):
                 dir_in = self.__queue.get()
                 paths = hp.get_paths(dir_in)
                 for num, path in enumerate(paths, start=1):
-                    meta = {'id': num, 'plate': hp.get_image(dir_in, path)}
-                    time.sleep(0.25)
+                    meta = {'id': random.randint(1000, 1000000000), 'plate': hp.get_image(dir_in, path)}
                     self.plate_captured.emit(meta)
                     print path
                 self.__queue.task_done()

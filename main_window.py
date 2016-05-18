@@ -3,6 +3,7 @@ import Queue
 import os
 import shutil
 import sys
+import time
 
 import cv2
 from PyQt4 import QtCore
@@ -130,6 +131,7 @@ class Presentation(QtCore.QThread):
         return item
 
     def run(self):
+        start = time.time()
         while True:
             if not self.__queue.empty():
                 item = self.__make_template(self.__queue.get())
@@ -138,9 +140,9 @@ class Presentation(QtCore.QThread):
                 with open("view/main-work.html", 'wb') as temp_file:
                     temp_file.write(self.__main_tmp)
 
-                if self.__counter % 3 == 0:
+                if time.time() - start > 0.25:
                     self.redraw.emit(self.__main_tmp.decode('utf-8'))
-                    #time.sleep(0.5)
+                    start = time.time()
                 self.__queue.task_done()
 
 

@@ -11,14 +11,27 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Демонстрация</string>
+   <string>Демонстрационное приложение</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>view/favicon.ico</normaloff>view/favicon.ico</iconset>
   </property>
   <property name="accessibleName">
    <string>r1</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <property name="margin">
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>2</number>
+    </property>
+    <property name="bottomMargin">
      <number>2</number>
     </property>
     <property name="spacing">
@@ -94,7 +107,7 @@
   <customwidget>
    <class>QWebView</class>
    <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
+   <header>QtWebKitWidgets/QWebView</header>
   </customwidget>
  </customwidgets>
  <resources/>

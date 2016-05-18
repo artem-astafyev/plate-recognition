@@ -63,7 +63,8 @@ class Recognition(QtCore.QThread):
                 pattern, signs = self.__segmentation(meta)
                 print "recognition", meta['id']
                 for counter, (pat, sign) in enumerate(zip(pattern, signs), start=0):
-                    meta['result'] += self.__recognition(pat, sign, counter, meta)
+                    if counter < 8:
+                        meta['result'] += self.__recognition(pat, sign, counter, meta)
 
                 self.plate_recognized.emit(meta)
 
@@ -85,6 +86,13 @@ class Recognition(QtCore.QThread):
         thr = cv2.adaptiveThreshold(morph, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 25, 0)
         cv2.rectangle(thr, (0, 0), (size[0], size[1]), (255, 255, 255), 7)
 
+        h, w = thr.shape[:2]
+        if rows == 1:
+            line = [255] * h
+            for i in xrange(w):
+                if sum(thr[0:h, i]) > 12100:
+                    thr[0:h, i] = line
+
         meta['plate'] = res
         meta['blur'] = blur
         meta['canny'] = canny
@@ -98,14 +106,15 @@ class Recognition(QtCore.QThread):
         signs, rects = [], []
         plate = meta['thresh']
         rows = meta['rows']
-        h, w = plate.shape[:2]
-        line = [255] * h
-        for i in xrange(w):
-            if sum(plate[0:h, i]) > 12100:
-                plate[0:h, i] = line
+        # h, w = plate.shape[:2]
+        # if rows == 1:
+        #     line = [255] * h
+        #     for i in xrange(w):
+        #         if sum(plate[0:h, i]) > 12100:
+        #             plate[0:h, i] = line
 
         canny = plate.copy()
-        im2, contours, hierarchy = cv2.findContours(canny, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        im2, contours, hierarchy = cv2.findContours(canny, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
 
         for cnt, hh in zip(contours, hierarchy[0]):
             x, y, w, h = cv2.boundingRect(cnt)
@@ -113,10 +122,10 @@ class Recognition(QtCore.QThread):
                 break
 
             w, h = map(float, (w, h))
-            koi = h / w < 3 and w / h < 1.05
+            koi = h / w < 3 and w / h < 1.15
             keff = 1500 > w * h > (350 - (rows - 1) * 100)
             z = x - 1000 if (y + h / 2) / plate.shape[0] < 0.5 and rows == 2 else x
-            if koi and keff:
+            if koi and keff and hh[3] >= 0:
                 img = hp.resize_to_small(plate[y:y + h, x: x + w])
                 signs.append(img)
                 rects.append([x, y, w, h, z])
@@ -145,7 +154,7 @@ class Recognition(QtCore.QThread):
                 c = Counter(t)
                 rec = max(c, key=c.get)
 
-        print at, kt, st, mt
+        #print at, kt, st, mt
 
         meta['signs'][counter] = sign
         meta['ann'][counter] = at

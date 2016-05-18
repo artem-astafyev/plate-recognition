@@ -143,7 +143,7 @@ pattern = re.compile(r'(\d+)\.(\d+)\.(png|jpg)', re.IGNORECASE)
 
 def get_paths(input_dir):
     paths = os.listdir(input_dir)
-    valid = [path for path in paths if path.endswith(('.jpg', '.png'))]
+    valid = [path for path in paths if path.endswith(('.jpg', '.png', '.JPEG', '.PNG', '.JPG'))]
     return valid
 
 
