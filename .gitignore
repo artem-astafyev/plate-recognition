@@ -2,3 +2,4 @@
 .idea
 /images
 /view/img
+/view/*.html

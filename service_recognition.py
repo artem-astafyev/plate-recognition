@@ -25,9 +25,6 @@ class RecognitionLoader(QtCore.QThread):
 
     def run(self):
         ann, knn, msp, svm = ANN(), KNN(), MSP(), MYSVM()
-
-        print 'run'
-
         self.on_loaded.emit({'ann':ann, 'knn':knn, 'msp' : msp, 'svm':svm})
 
 
@@ -106,12 +103,6 @@ class Recognition(QtCore.QThread):
         signs, rects = [], []
         plate = meta['thresh']
         rows = meta['rows']
-        # h, w = plate.shape[:2]
-        # if rows == 1:
-        #     line = [255] * h
-        #     for i in xrange(w):
-        #         if sum(plate[0:h, i]) > 12100:
-        #             plate[0:h, i] = line
 
         canny = plate.copy()
         im2, contours, hierarchy = cv2.findContours(canny, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
@@ -215,7 +206,6 @@ class Recognition(QtCore.QThread):
         self.knn = ocr['knn']
         self.svm = ocr['svm']
         self.msp = ocr['msp']
-        print 'end run'
 
     QtCore.pyqtSlot()
     def end(self):
