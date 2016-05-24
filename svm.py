@@ -35,6 +35,7 @@ svm_sym_input_data_file = "svm/sym.data"
 
 
 class MYSVM:
+    name = "SVM"
     def __init__(self):
         self.svm_num = hp.train_num
         self.svm_sym = hp.train_sym
@@ -140,13 +141,12 @@ class MYSVM:
     def rec(self, img, mode):
         data = self.__buddy_hog(img)
         data2 = np.float32([np.float32(data)])
-
         rec = -1
         if mode == "sym":
             rec = np.int32(self.sym_model.predict(data2))
         elif mode == "num":
             rec = np.int32(self.num_model.predict(data2))
-        return hp.ann_get_lit(rec, mode), rec
+        return hp.ann_get_lit(rec, mode)
 
 
 def testing_svm_from_image_base(input_dir, set_name, mode, svm):

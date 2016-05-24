@@ -27,7 +27,7 @@ class Capture(QtCore.QThread):
                 for num, path in enumerate(paths, start=1):
                     meta = {'id': random.randint(1000, 1000000000), 'plate': hp.get_image(dir_in, path)}
                     self.plate_captured.emit(meta)
-                    print path
+                    # print path
                 self.__queue.task_done()
 
 
@@ -38,7 +38,7 @@ class Show(QObject):
     @QtCore.pyqtSlot(dict)
     def show(self, meta):
         hp.show(meta['plate'])
-        print meta['id']
+        #print meta['id']
 
 
 def example():

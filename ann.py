@@ -25,6 +25,7 @@ nn_sym_test_data_file = "ann/test/test-syms.dat"
 
 
 class ANN:
+    name = "ANN"
     def __init__(self):
         self.hog_num_file="ann/input/hog-nums.ann"
         self.hog_sym_file = "ann/input/hog-syms.ann"
@@ -39,11 +40,11 @@ class ANN:
         if mode == hp.mode_num:
             vec = list(self.__buddy_hog(img))
             rec = hp.get_max_from_int_array(self.num_ann.run(vec))
-            return str(rec), rec
+            return str(rec)
         elif mode == hp.mode_sym:
             vec = list(self.__buddy_hog(img))
             rec = hp.get_max_from_int_array(self.sym_ann.run(vec))
-            return hp.ann_get_lit(rec, mode), rec
+            return hp.ann_get_lit(rec, mode)
 
     def __buddy_hog(self, img):
         gx = cv2.Sobel(img, cv2.CV_32F, 1, 0)

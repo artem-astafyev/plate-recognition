@@ -1,36 +1,2612 @@
-<!DOCTYPE html><html lang="en"><head>    <meta charset="utf-8">    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta name="viewport" content="width=device-width, initial-scale=1">    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->    <title>Шаблон</title>    <!-- Bootstrap -->    <link href="File:///E:\python\plate-recognition//view//css\\bootstrap.min.css" rel="stylesheet">    <link href="File:///E:\python\plate-recognition//view//css\\style.css" rel="stylesheet"></head><body>    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->    <script src="File:///E:\python\plate-recognition//view//js\\ajax.js"></script>    <!-- Include all compiled plugins (below), or include individual files as needed -->    <script src="File:///E:\python\plate-recognition//view//js\\bootstrap.min.js"></script>			<div class="container">    <div class="row">        <div class="col-xs-5 col-middle">            <h3>Предобработка:</h3>            <table style="border: none">                <tr>                    <td> <h4>Plate:</h4></td>                    <td><img class="plate" src="File:///E:\python\plate-recognition//view//img\\1\\plate\\plate.jpg"/></td>                </tr>                <tr>                    <td><h4>Blur:</h4></td>                    <td><img class="plate" src="File:///E:\python\plate-recognition//view//img\\1\\plate\\blur.jpg"/></td>                </tr>                <tr>                    <td><h4>Canny:</h4></td>                    <td><img class="plate" src="File:///E:\python\plate-recognition//view//img\\1\\plate\\canny.jpg"/></td>                </tr>                <tr>                    <td><h4>Morph:</h4></td>                    <td><img class="plate" src="File:///E:\python\plate-recognition//view//img\\1\\plate\\morph.jpg"/></td>                </tr>                <tr>                    <td><h4>Threshold:</h4></td>                    <td><img class="plate" src="File:///E:\python\plate-recognition//view//img\\1\\plate\\thresh.jpg"/></td>                </tr>            </table>        </div>        <div class="col-xs-7 col-middle">            <h3>Сегментация:</h3>            <table class="block" >                <tr>                    <td>&nbsp;</td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\1.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\2.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\3.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\4.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\5.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\6.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\7.jpg"/></td>                    <td><img class="sym" src="File:///E:\python\plate-recognition//view//img\\1\\sym\\8.jpg"/></td>                </tr>                <tr>                    <td>Ann:</td>                        <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>                </tr>                <tr>                    <td>Knn:</td>                        <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>                </tr>                <tr>                    <td>Svm:</td>                        <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>                </tr>                <tr>                    <td>Msp:</td>                        <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>                </tr>                <tr>                    <td>Com:</td>                        <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>                </tr>            </table>            <div class="wrap">                <div class="fl wt">Результат: </div>                <div class="fl">&nbsp;</div>                <div class="fl"><span></span></div>            </div>        </div>    </div></div>{0}</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Шаблон</title>    <!-- Bootstrap -->
+    <link href="file:///E:/python/plate-recognition/view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="file:///E:/python/plate-recognition/view/css/style.css" rel="stylesheet">
+</head>
+<body style="background: url(file:///E:/python/plate-recognition/view//tmp/2.png); background-repeat: repeat; background-position: top left;">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="file:///E:/python/plate-recognition/view/js/ajax.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="file:///E:/python/plate-recognition/view/js/bootstrap.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/638853810/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/638853810/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/638853810/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/638853810/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/638853810/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/638853810/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>B</td>
+                    <td>O</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>B</td>
+                    <td>O</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>B</td>
+                    <td>O</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>B</td>
+                    <td>O</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>B</td>
+                    <td>O</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>034BOA16</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/465332993/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/465332993/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/465332993/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/465332993/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/465332993/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/465332993/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>4</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>4</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>4</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>4</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>4</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>604ACA11</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/39964490/plate/plate.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/39964490/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/39964490/plate/canny.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/39964490/plate/morph.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/39964490/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/39964490/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>B</td>
+                    <td>W</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>B</td>
+                    <td>W</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>B</td>
+                    <td>W</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>B</td>
+                    <td>W</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>B</td>
+                    <td>W</td>
+                    <td>A</td>
+                    <td>1</td>
+                    <td>6</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>251BWA16</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/726135132/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/726135132/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/726135132/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/726135132/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/726135132/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/726135132/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>F</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>A</td>
+                    <td>E</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>F</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>A</td>
+                    <td>E</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>F</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>A</td>
+                    <td>E</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>F</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>A</td>
+                    <td>F</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>F</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>A</td>
+                    <td>E</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>F146AEN</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/849361722/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/849361722/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/849361722/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/849361722/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/849361722/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/849361722/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>777AAA01</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/469099976/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/469099976/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/469099976/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/469099976/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/469099976/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/469099976/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N163PZM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/719059024/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/719059024/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/719059024/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/719059024/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/719059024/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/719059024/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>M</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>W</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>N</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>V</td>
+                    <td>A</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>?</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>F916?AM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/224204464/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/224204464/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/224204464/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/224204464/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/224204464/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/224204464/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>A</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>777AAA01</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/425075444/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/425075444/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/425075444/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/425075444/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/425075444/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/425075444/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>A</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>E</td>
+                    <td>P</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>A</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>E</td>
+                    <td>P</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>A</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>E</td>
+                    <td>P</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>A</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>E</td>
+                    <td>P</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>A</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>E</td>
+                    <td>P</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>A733CEP</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/769367159/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/769367159/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/769367159/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/769367159/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/769367159/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/769367159/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>V</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>V</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>V</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>V</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>F</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>V</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>F916VAM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/317966805/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/317966805/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/317966805/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/317966805/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/317966805/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/317966805/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>M</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>H</td>
+                    <td>C</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>M</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>H</td>
+                    <td>C</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>M</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>H</td>
+                    <td>C</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>M</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>H</td>
+                    <td>C</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>M</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>H</td>
+                    <td>C</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>M934HCN</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/865858489/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/865858489/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/865858489/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/865858489/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/865858489/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/865858489/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>O</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>O</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>O</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>O</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>O</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N014OZM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/374902499/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/374902499/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/374902499/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/374902499/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/374902499/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/374902499/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>E</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>E</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>E</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>E</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>E</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N023EXM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/159149356/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/159149356/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/159149356/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/159149356/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/159149356/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/159149356/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>M</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>M</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>M</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>M</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>M</td>
+                    <td>A</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N811MAM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/900722238/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/900722238/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/900722238/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/900722238/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/900722238/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/900722238/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>F</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>C</td>
+                    <td>K</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N908CXM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/332914287/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/332914287/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/332914287/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/332914287/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/332914287/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/332914287/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>9</td>
+                    <td>L</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>9</td>
+                    <td>L</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>9</td>
+                    <td>L</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>9</td>
+                    <td>L</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>9</td>
+                    <td>L</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N919LZM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/568693426/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/568693426/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/568693426/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/568693426/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/568693426/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/568693426/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N945CXM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/585951609/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/585951609/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/585951609/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/585951609/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/585951609/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/585951609/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>M</td>
+                    <td>9</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>P</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N978PZM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/34413017/plate/plate.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/34413017/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/34413017/plate/canny.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/34413017/plate/morph.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/34413017/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/34413017/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>M</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>M</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>M</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>M</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>M</td>
+                    <td>Z</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N984MZM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/903919697/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/903919697/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/903919697/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/903919697/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/903919697/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/903919697/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>N</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>1</td>
+                    <td>C</td>
+                    <td>X</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>N991CXM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/757385116/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/757385116/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/757385116/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/757385116/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/757385116/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/757385116/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>S</td>
+                    <td>7</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>N</td>
+                    <td>C</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>S</td>
+                    <td>7</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>N</td>
+                    <td>C</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>S</td>
+                    <td>7</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>N</td>
+                    <td>C</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>S</td>
+                    <td>7</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>N</td>
+                    <td>C</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>S</td>
+                    <td>7</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>N</td>
+                    <td>C</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>S798NCM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/100194305/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/100194305/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/100194305/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/100194305/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/100194305/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/100194305/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>S</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>M</td>
+                    <td>P</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>S</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>M</td>
+                    <td>P</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>S</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>M</td>
+                    <td>P</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>S</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>M</td>
+                    <td>P</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>S</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>M</td>
+                    <td>P</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>S878MPM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/220189775/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/220189775/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/220189775/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/220189775/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/220189775/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/220189775/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>T</td>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>U</td>
+                    <td>H</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>T</td>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>U</td>
+                    <td>H</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>T</td>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>U</td>
+                    <td>H</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>T</td>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>U</td>
+                    <td>H</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>T</td>
+                    <td>9</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>U</td>
+                    <td>H</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>T925UHM</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-middle"><h3>Предобработка:</h3>
+            <table style="border: none">
+                <tr>
+                    <td><h4>Plate:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/759915855/plate/plate.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Blur:</h4></td>
+                    <td><img class="plate" src="file:///E:/python/plate-recognition/view/img/759915855/plate/blur.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Canny:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/759915855/plate/canny.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Morph:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/759915855/plate/morph.jpg"/></td>
+                </tr>
+                <tr>
+                    <td><h4>Threshold:</h4></td>
+                    <td><img class="plate"
+                             src="file:///E:/python/plate-recognition/view/img/759915855/plate/thresh.jpg"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 col-middle"><h3>Сегментация:</h3>
+            <table class="block">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/1.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/2.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/3.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/4.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/5.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/6.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/7.jpg"/></td>
+                    <td><img class="sym" src="file:///E:/python/plate-recognition/view/img/759915855/sym/8.jpg"/></td>
+                </tr>
+                <tr>
+                    <td>Ann:</td>
+                    <td>X</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>9</td>
+                    <td>Z</td>
+                    <td>T</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Knn:</td>
+                    <td>X</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>9</td>
+                    <td>Z</td>
+                    <td>T</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Svm:</td>
+                    <td>X</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>9</td>
+                    <td>Z</td>
+                    <td>T</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Msp:</td>
+                    <td>X</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>9</td>
+                    <td>Z</td>
+                    <td>T</td>
+                    <td>M</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Com:</td>
+                    <td>X</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>9</td>
+                    <td>Z</td>
+                    <td>T</td>
+                    <td>N</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <div class="wrap">
+                <div class="fl wt">Результат:</div>
+                <div class="fl">&nbsp;</div>
+                <div class="fl"><span>X229ZTN</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+{0}
+<script>window.scrollTo(0, document.body.scrollHeight);</script>
+</body>
+</html>

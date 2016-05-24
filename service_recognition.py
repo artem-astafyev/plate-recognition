@@ -134,10 +134,10 @@ class Recognition(QtCore.QThread):
         at, kt, st, mt, rec = "?", "?", "?", "?", "?"
 
         if mode == "num" or mode == "sym":
-            at, _ = self.ann.rec(sign, mode)
-            kt, _ = self.knn.rec(sign, mode)
-            st, _ = self.svm.rec(sign, mode)
-            mt, _ = self.msp.rec(sign, mode)
+            at = self.ann.rec(sign, mode)
+            kt = self.knn.rec(sign, mode)
+            st = self.svm.rec(sign, mode)
+            mt = self.msp.rec(sign, mode)
 
             xyz = {at, kt, st}
             if len(xyz) < 3:
@@ -163,7 +163,7 @@ class Recognition(QtCore.QThread):
             t = len([r[4] for r in rects if r[4] < 0])
             b = len(rects) - t
 
-            print "top, bot: ", t, b, lr
+            # print "top, bot: ", t, b, lr
 
             if t == 3 and b == 5:
                 pattern = "dddddsss"
@@ -198,7 +198,6 @@ class Recognition(QtCore.QThread):
     @QtCore.pyqtSlot(dict)
     def process(self, meta):
         self.__queue.put(meta)
-        print  'qsize', self.__queue.qsize()
 
     @QtCore.pyqtSlot(dict)
     def get_ocr(self, ocr):

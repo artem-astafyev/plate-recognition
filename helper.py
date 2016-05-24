@@ -24,89 +24,6 @@ small_sym = small_test_sym_images_15x20
 big_num = big_test_num_images_15x20
 big_sym = big_test_sym_images_15x20
 
-dir_input_pattern_num_30x40 = "msp/num/30x40"
-dir_input_pattern_sym_30x40 = "msp/sym/30x40"
-dir_input_pattern_num_15x20 = "msp/num/15x20"
-dir_input_pattern_sym_15x20 = "msp/sym/15x20"
-
-msp_num = dir_input_pattern_num_15x20
-msp_sym = dir_input_pattern_sym_15x20
-
-ann_num_error = "test/ann/num/error"
-ann_num_report = "test/ann/num/report"
-ann_num_success = "test/ann/num/success"
-ann_sym_error = "test/ann/sym/error"
-ann_sym_report = "test/ann/sym/report"
-ann_sym_success = "test/ann/sym/success"
-
-ind_num_error = "test/ind/num/error"
-ind_num_report = "test/ind/num/report"
-ind_num_success = "test/ind/num/success"
-ind_sym_error = "test/ind/sym/error"
-ind_sym_report = "test/ind/sym/report"
-ind_sym_success = "test/ind/sym/success"
-
-knn_num_error = "test/knn/num/error"
-knn_num_report = "test/knn/num/report"
-knn_num_success = "test/knn/num/success"
-knn_sym_error = "test/knn/sym/error"
-knn_sym_report = "test/knn/sym/report"
-knn_sym_success = "test/knn/sym/success"
-
-msp_num_error = "test/msp/num/error"
-msp_num_report = "test/msp/num/report"
-msp_num_success = "test/msp/num/success"
-msp_sym_error = "test/msp/sym/error"
-msp_sym_report = "test/msp/sym/report"
-msp_sym_success = "test/msp/sym/success"
-
-svm_num_error = "test/svm/num/error"
-svm_num_report = "test/svm/num/report"
-svm_num_success = "test/svm/num/success"
-svm_sym_error = "test/svm/sym/error"
-svm_sym_report = "test/svm/sym/report"
-svm_sym_success = "test/svm/sym/success"
-
-test_paths = ["test/ann/num/error"
-    , "test/ann/num/report"
-    , "test/ann/num/success"
-    , "test/ann/sym/error"
-    , "test/ann/sym/report"
-    , "test/ann/sym/success"
-
-    , "test/ind/num/error"
-    , "test/ind/num/report"
-    , "test/ind/num/success"
-    , "test/ind/sym/error"
-    , "test/ind/sym/report"
-    , "test/ind/sym/success"
-
-    , "test/knn/num/error"
-    , "test/knn/num/report"
-    , "test/knn/num/success"
-    , "test/knn/sym/error"
-    , "test/knn/sym/report"
-    , "test/knn/sym/success"
-
-    , "test/msp/num/error"
-    , "test/msp/num/report"
-    , "test/msp/num/success"
-    , "test/msp/sym/error"
-    , "test/msp/sym/report"
-    , "test/msp/sym/success"
-
-    , "test/svm/num/error"
-    , "test/svm/num/report"
-    , "test/svm/num/success"
-    , "test/svm/sym/error"
-    , "test/svm/sym/report"
-    , "test/svm/sym/success"
-
-    , "test/all/num/error"
-    , "test/all/num/success"
-    , "test/all/sym/success"
-    , "test/all/sym/error"]
-
 mode_num = "num"
 mode_sym = "sym"
 
@@ -122,8 +39,7 @@ def to_bin(img):
     if len(img.shape) > 2:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, img = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
-    h, w = img.shape
-    return h, w, img
+    return img
 
 
 def get_int_array_from_image(img):
@@ -157,6 +73,10 @@ def show(image, display=True):
 
 def get_image(dir_in, name):
     return cv2.imread("{0}/{1}".format(dir_in, name))
+
+
+def get_gray_image(dir_in, name):
+    return cv2.imread("{0}/{1}".format(dir_in, name), 0)
 
 
 def write_image(dir_in, name, img):
@@ -223,12 +143,12 @@ def rename_base_sym(dir_in, dir_out, start=1, step=1):
 def resize_to_small(sym):
     h, w = 15, 20
     res = cv2.resize(sym, (h, w), interpolation=cv2.INTER_CUBIC)
-    h, w, res = to_bin(res)
+    res = to_bin(res)
     return res
 
 
 def resize_to_big(sym):
     h, w = 30, 40
     res = cv2.resize(sym, (h, w), interpolation=cv2.INTER_CUBIC)
-    h, w, res = to_bin(res)
+    res = to_bin(res)
     return res
