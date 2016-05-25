@@ -1,0 +1,1 @@
+start C:\\Python27\python.exe E:\python\plate-recognition\test.py
