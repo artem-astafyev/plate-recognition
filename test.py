@@ -1,5 +1,7 @@
 import time
+import pickle
 
+import os
 import helper as hp
 from ann import ANN
 from com import COM
@@ -14,7 +16,7 @@ sym_labels = []
 
 
 def load(dir_num, dir_sym):
-    print '##############'
+    print '\n##############'
     print 'loading nums...'
     num_paths = hp.get_paths(dir_num)
     for path in num_paths:
@@ -27,6 +29,36 @@ def load(dir_num, dir_sym):
         sym_labels.append(hp.get_test(path, "sym")[0])
     print '##############'
 
+
+def save_pickle(dir_out):
+    print '\n##############'
+    print 'saving pickle...'
+    with open("{0}num_images.dat".format(dir_out), "wb") as f:
+        pickle.dump(num_images, f)
+    with open("{0}num_labels.dat".format(dir_out), "wb") as f:
+        pickle.dump(num_labels, f)
+    with open("{0}sym_images.dat".format(dir_out), "wb") as f:
+        pickle.dump(sym_images, f)
+    with open("{0}sym_labels.dat".format(dir_out), "wb") as f:
+        pickle.dump(sym_labels, f)
+    print '##############'
+
+
+def load_pickle(dir_in):
+    print '\n##############'
+    print 'loading pickle...'
+    print 'loading nums...'
+    global num_labels, num_images, sym_images, sym_labels
+    with open("{0}num_images.dat".format(dir_in), "rb") as f:
+        num_images = pickle.load(f)
+    with open("{0}num_labels.dat".format(dir_in), "rb") as f:
+        num_labels = pickle.load(f)
+    print 'loading syms...'
+    with open("{0}sym_images.dat".format(dir_in), "rb") as f:
+        sym_images = pickle.load(f)
+    with open("{0}sym_labels.dat".format(dir_in), "rb") as f:
+        sym_labels = pickle.load(f)
+    print '##############'
 
 def test(method):
     print '\n##############'
@@ -82,6 +114,8 @@ def test(method):
 if __name__ == "__main__":
     num_path = "images/test/set3/num"
     sym_path = "images/test/set3/sym"
+    pickle_path = "test/set3/"
+    PICKLE = True
 
     print '##############'
     ann = ANN()
@@ -89,9 +123,13 @@ if __name__ == "__main__":
     msp = MSP()
     knn = KNN()
     com = COM(ann, svm, knn, msp)
-    print '##############\n'
+    print '##############'
 
-    load(num_path, sym_path)
+    if not PICKLE:
+        load(num_path, sym_path)
+        save_pickle(pickle_path)
+    else:
+        load_pickle(pickle_path)
 
     N = 0
     if N == 1 or N == 0:
