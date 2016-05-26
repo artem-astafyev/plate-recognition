@@ -1,5 +1,4 @@
 *.pyc
 .idea
-/images
 /view/img
 /view/main-work.html
