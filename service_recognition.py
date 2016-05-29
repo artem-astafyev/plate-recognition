@@ -139,9 +139,9 @@ class Recognition(QtCore.QThread):
             st = self.svm.rec(sign, mode)
             mt = self.msp.rec(sign, mode)
 
-            xyz = {at, kt, st}
-            if len(xyz) < 3:
-                t = [at, kt, st]
+            xyz = {at, kt, st, mt}
+            if len(xyz) < 4:
+                t = [at, kt, st, mt]
                 c = Counter(t)
                 rec = max(c, key=c.get)
 

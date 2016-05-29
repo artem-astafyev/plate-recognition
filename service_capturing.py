@@ -18,10 +18,12 @@ class Capture(QtCore.QThread):
     @QtCore.pyqtSlot(str)
     def start_capturing(self, dir_in):
         self.__queue.put(dir_in)
+        print 'get new dir'
 
     def run(self):
         while True:
             if not self.__queue.empty():
+                print 'process dir'
                 dir_in = self.__queue.get()
                 paths = hp.get_paths(dir_in)
                 for num, path in enumerate(paths, start=1):

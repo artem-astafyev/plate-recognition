@@ -7,6 +7,17 @@
     margin-top: 5px;
 }
 
+td.wrong {
+	color: #15F319;
+	background: cadetblue;
+	/*text-decoration: line-through;*/
+}
+
+td.wrong-lighting {
+	color: cyan;
+	background: gray;
+}
+
 .icon-flipped {
     transform: scaleX(-1);
     -moz-transform: scaleX(-1);
@@ -74,7 +85,7 @@ td {
     padding-right: 1px;
     border-style: dotted;
     border-color: #90BAAC;
-
+	background: darkcyan;
 }
 
 .row{
