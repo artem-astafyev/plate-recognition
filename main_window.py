@@ -18,7 +18,7 @@ from service_recognition import Recognition
 
 
 class MyWindow(QtGui.QMainWindow):
-    __dir = 'plates/present'
+    __dir = 'plates/set1'
     __zam1 = "file:///{0}/view/".format(os.getcwd().replace("\\", "/"))
 
     start_capturing = QtCore.pyqtSignal(str)
@@ -27,7 +27,6 @@ class MyWindow(QtGui.QMainWindow):
         super(MyWindow, self).__init__()
         uic.loadUi('mybrow.ui', self)
         self.vieww = QtWebKit.QWebView(self)
-        # self.vieww.load(QUrl("http://google.com"))
         self.__fill_page('loader.html')
         self.vieww.load(self.__get_uri('loader.html'))
 
@@ -98,12 +97,14 @@ class Presentation(QtCore.QThread):
             self.__main_tmp = myfile.read().replace('\n', '')
         self.__main_tmp = self.__main_tmp.format("{0}", self.__zam1)
 
+
     def __tworaws2onerows(self, plate):
         h, w = plate.shape
         double = np.zeros((h / 2, w * 2), dtype=np.uint8)
         double[0:h / 2, 0:w] = plate[0:h / 2, 0:w]
         double[0:h / 2, w:2 * w] = plate[h / 2:h, 0:w]
         return double
+
 
     def __line_present(self, meta, name):
         td_good = "<td>{0}</td>"

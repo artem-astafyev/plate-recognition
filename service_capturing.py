@@ -31,25 +31,3 @@ class Capture(QtCore.QThread):
                     self.plate_captured.emit(meta)
                     # print path
                 self.__queue.task_done()
-
-
-class Show(QObject):
-    def __init__(self, parent=None):
-        QObject.__init__(self, parent)
-
-    @QtCore.pyqtSlot(dict)
-    def show(self, meta):
-        hp.show(meta['plate'])
-        #print meta['id']
-
-
-def example():
-    capture = Capture()
-    show = Show()
-
-    capture.plate_captured.connect(show.show)
-    capture.start_capturing(dir_in="plates/present")
-
-
-if __name__ == "__main__":
-    pass

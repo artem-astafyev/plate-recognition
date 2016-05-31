@@ -113,7 +113,7 @@ class Recognition(QtCore.QThread):
                 break
 
             w, h = map(float, (w, h))
-            koi = h / w < 3 and w / h < 1.15
+            koi = h / w < 3 and w / h < 1.3
             keff = 1500 > w * h > (350 - (rows - 1) * 100)
             z = x - 1000 if (y + h / 2) / plate.shape[0] < 0.5 and rows == 2 else x
             if koi and keff and hh[3] >= 0:

@@ -60,6 +60,7 @@ def load_pickle(dir_in):
         sym_labels = pickle.load(f)
     print '##############'
 
+
 def test(method):
     print '\n##############'
     print 'method: ' + method.name + '\n'
@@ -112,9 +113,9 @@ def test(method):
 
 
 if __name__ == "__main__":
-    num_path = "images/test/set3/num"
-    sym_path = "images/test/set3/sym"
-    pickle_path = "test/set3/"
+    num_path = "images/test/set1/num"
+    sym_path = "images/test/set1/sym"
+    pickle_path = "test/set1/"
     PICKLE = True
 
     print '##############'
