@@ -7,7 +7,7 @@ This application is used for character recognition: Method of simple patterns, S
 
 ## Installation
 
-###1. Installing Python & Opencv & Numpy.
+###1. Installing Python & Opencv & Numpy
 
 ####1.1 Python
 
@@ -51,7 +51,7 @@ Open Python IDLE or python console, and type:</br>
 
 If no errors shown, it is OK.</br>
 
-###2. Installing FANN and PyQt4.
+###2. Installing FANN and PyQt4
 
 ####2.1 Wheel
 
@@ -74,13 +74,13 @@ Open cmd an type:
 Go to: https://riverbankcomputing.com/software/pyqt/download/</br>
 Download: PyQt4-4.11.4-gpl-Py2.7-Qt4.8.7-x32.exe
 
-OR just:
-http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt4-4.11.4-gpl-Py2.7-Qt4.8.7-x32.exe
+OR just:</br>
+http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt4-4.11.4-gpl-Py2.7-Qt4.8.7-x32.exe</br></br>
 Install it.
 
 ## Contributors
 
-Contributor: capital-boss</br>
+Contributor: **capital-boss**</br>
 VK: https://vk.com/programmer22222</br>
 Skype: programmer222222</br>
 
