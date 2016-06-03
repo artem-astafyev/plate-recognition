@@ -12,23 +12,25 @@ This application is used for character recognition: Method of simple patterns, S
 ####1.1 Python
 
 Download Windows x86 MSI installer from:
+
 https://www.python.org/downloads/release/python-2711/
 
 #####Install:
+
 Run installer and have a fun.
 
-#####PATH:
+#####PATH:</br>
 Add **"C:\Python27"** to **PATH** variable.
 
 ####1.2 Python package installer (pip)
-Download from:
+Download from:</br>
 https://bootstrap.pypa.io/get-pip.py
 
 #####Install:
 Open cmd, go to folder with **get-pip.py** and write:
 > \> python get-pip.py 
 
-#####PATH:
+#####PATH:</br>
 Add **"C:\Python27\Scripts"** to **PATH** variable
 
 ####1.3 Numpy
