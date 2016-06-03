@@ -1,6 +1,4 @@
 *.pyc
 .idea
-/view/img
-/view/main-work.html
-/images
-/plates
+view/img
+view/main-work.html

@@ -1,0 +1,1 @@
+start C:\Python27\python.exe test.py
