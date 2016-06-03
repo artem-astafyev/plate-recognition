@@ -75,7 +75,7 @@ Go to: https://riverbankcomputing.com/software/pyqt/download/</br>
 Download: PyQt4-4.11.4-gpl-Py2.7-Qt4.8.7-x32.exe
 
 OR just:</br>
-http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt4-4.11.4-gpl-Py2.7-Qt4.8.7-x32.exe</br></br>
+http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt4-4.11.4-gpl-Py2.7-Qt4.8.7-x32.exe
 
 ## Contributors
 
