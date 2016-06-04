@@ -66,7 +66,7 @@ Choose: fann2-1.0.7-cp27-none-win32.whl
 
 #####Install:
 Go to downloads folder.
-Open cmd an type:
+Open cmd and type:
 > \> pip install fann2-1.0.7-cp27-none-win32.whl
 
 ####2.3 Installing PyQt4 library
