@@ -80,7 +80,7 @@ http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt4-4.11.4-gpl-Py
 ## Contributors
 
 Contributor: **capital-boss**</br>
-LinkedId: https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%B0%D1%81%D1%82%D0%B0%D1%84%D1%8C%D0%B5%D0%B2/</br>
+LinkedId: www.linkedin.com/in/artem-astafyev</br>
 Skype: programmer222222</br>
 
 ## License
